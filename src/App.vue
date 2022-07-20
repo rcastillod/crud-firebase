@@ -1,42 +1,6 @@
 <template>
   <v-app>
-    <v-app-bar
-      app
-      color="primary"
-      dark
-    >
-      <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
-
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
-      </div>
-
-      <v-spacer></v-spacer>
-
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
-    </v-app-bar>
-
+    <navigation v-if="isPrivateRoute"></navigation>
     <v-main>
       <router-view/>
     </v-main>
@@ -44,12 +8,33 @@
 </template>
 
 <script>
+import Navigation from './components/Navigation.vue';
 
 export default {
   name: 'App',
-
   data: () => ({
-    //
+    
   }),
+  computed: {
+    isPrivateRoute() {
+      return this.$route.meta.privateRoute  
+    }
+  },  
+  components: {
+    'navigation': Navigation
+  }
 };
 </script>
+
+<style lang="scss">
+.login,
+.register {
+  background-image: url('./assets/login-bg.jpg');
+  background-size: cover;
+  background-position: center center;
+  height: 100vh;
+}
+.form-card {
+  backdrop-filter: blur(15px);
+}
+</style>

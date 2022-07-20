@@ -19,7 +19,7 @@
                 </v-col>
                 <v-row>
                     <v-col cols="12">
-                        <h2 class="text-h4 font-weight-bold white--text">Login</h2>
+                        <h2 class="text-h4 font-weight-bold white--text">Registro</h2>
                     </v-col>
                 </v-row>
                 <v-row>
@@ -43,8 +43,8 @@
                         <v-btn
                             depressed
                             color="primary"
-                            @click="login"
-                        >Ingresar</v-btn>
+                            @click="register"
+                        >Registrarme</v-btn>
                     </v-col>
                 </v-row>
             </v-container>
@@ -53,10 +53,10 @@
 </template>
 
 <script>
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
 export default {
-    name: 'login-form',
+    name: 'register-form',
     data: function(){
         return {
             valid: false,
@@ -75,32 +75,23 @@ export default {
         }
     },
     methods: {
-        async login() {
-            this.$refs.form.validate()
-            if ( this.valid == false ) {
-                this.alertError = true
-                this.alertMessage = "Debes ingresar todo los campos requeridos!"
-            } else {
-                this.alertError = false
-                const auth = getAuth()
-                try {
-                    let log = await signInWithEmailAndPassword(auth, this.email, this.password)
-                    console.log(log)
-                    this.$router.push('/')
-                }
-                catch(error) {
-                    const errorCode = error.code
-                    const errorMessage = error.message
-                    console.log(errorCode, errorMessage)
-                    this.alertError = true
-                    this.alertMessage = "Tu usuario o contraseña son incorrectos."
-                }
+        async register() {
+            const auth = getAuth();
+            try {
+                let reg = await createUserWithEmailAndPassword(auth, this.email, this.password)
+                console.log(reg)
+                this.$router.push('/')
+            }
+            catch(error) {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                console.log(errorCode, errorMessage)
             }
         }
     }
 }
 </script>
 
-<style scoped lang="scss">
+<style scoped>
     
 </style>

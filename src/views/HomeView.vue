@@ -16,6 +16,10 @@ import usersTable from '@/components/usersTable.vue'
 
   export default {
     name: 'home-view',
+    data: () => ({
+      sesion: false,
+      textSesion: ''
+    }),
     components: {
       'users-table': usersTable
     },

@@ -140,7 +140,6 @@ import { doc, collection, addDoc, setDoc, deleteDoc } from '@firebase/firestore'
 
 export default {
     name: 'users-table',
-    // props: {},
     data: function(){
         return {
             valid: true,
@@ -292,14 +291,9 @@ export default {
             val || this.closeDelete()
         },
     },
-    // components: {},
-    // mixins: [],
-    // filters: {},
-    // -- Lifecycle Methods
     created() {
         this.getUsuario()
     }
-    // -- End Lifecycle Methods
 }
 </script>
 
