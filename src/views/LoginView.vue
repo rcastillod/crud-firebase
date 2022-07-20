@@ -2,7 +2,7 @@
     <section class="login">
         <v-container fill-height>
             <v-row justify="center">
-                <v-col cols="3">
+                <v-col cols="12" sm="6" md="6" lg="4" xl="3">
                     <login-form></login-form>
                 </v-col>
             </v-row>

@@ -9,7 +9,9 @@
             <v-container>
                 <v-col cols="12" v-if="alertError">
                     <v-alert 
-                        :value="alertError" 
+                        :value="alertError"
+                        outlined
+                        color="white"
                         text 
                         type="error" 
                         icon="mdi-alert-circle"
@@ -27,6 +29,7 @@
                         <v-text-field 
                             v-model="email" 
                             :rules="emailRules" 
+                            prepend-icon="mdi-account-outline"
                             label="E-mail"
                             dark
                             required></v-text-field>
@@ -35,6 +38,7 @@
                         <v-text-field 
                             v-model="password"
                             :rules="passwordRules" 
+                            prepend-icon="mdi-key-outline"
                             label="Password"
                             dark
                             required></v-text-field>
@@ -42,9 +46,17 @@
                     <v-col cols="12">
                         <v-btn
                             depressed
-                            color="primary"
+                            color="#E11D90"
+                            dark
                             @click="register"
                         >Registrarme</v-btn>
+                    </v-col>
+                    <v-col>
+                        <v-divider dark></v-divider>
+                    </v-col>
+                    <v-col cols="12" class="d-flex justify-center">
+                        <div class="text-caption white--text">¿Ya tienes una cuenta?</div>
+                        <div class="text-caption font-weight-bold white--text ml-2" @click="loginLink">Iniciar Sesión</div>
                     </v-col>
                 </v-row>
             </v-container>
@@ -87,6 +99,9 @@ export default {
                 const errorMessage = error.message;
                 console.log(errorCode, errorMessage)
             }
+        },
+        loginLink() {
+            this.$router.push('/login')
         }
     }
 }

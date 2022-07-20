@@ -9,7 +9,9 @@
             <v-container>
                 <v-col cols="12" v-if="alertError">
                     <v-alert 
-                        :value="alertError" 
+                        :value="alertError"
+                        outlined
+                        color="white"
                         text 
                         type="error" 
                         icon="mdi-alert-circle"
@@ -26,7 +28,8 @@
                     <v-col cols="12">
                         <v-text-field 
                             v-model="email" 
-                            :rules="emailRules" 
+                            :rules="emailRules"
+                            prepend-icon="mdi-account-outline"
                             label="E-mail"
                             dark
                             required></v-text-field>
@@ -34,7 +37,8 @@
                     <v-col cols="12">
                         <v-text-field 
                             v-model="password"
-                            :rules="passwordRules" 
+                            :rules="passwordRules"
+                            prepend-icon="mdi-key-outline"
                             label="Password"
                             dark
                             required></v-text-field>
@@ -42,9 +46,17 @@
                     <v-col cols="12">
                         <v-btn
                             depressed
-                            color="primary"
+                            color="#E11D90"
+                            dark
                             @click="login"
                         >Ingresar</v-btn>
+                    </v-col>
+                    <v-col>
+                        <v-divider dark></v-divider>
+                    </v-col>
+                    <v-col cols="12" class="d-flex justify-center">
+                        <div class="text-caption white--text">¿Aun no tiene una cuenta?</div>
+                        <div class="text-caption font-weight-bold white--text ml-2" @click="registerLink">Regístrate</div>
                     </v-col>
                 </v-row>
             </v-container>
@@ -96,6 +108,9 @@ export default {
                     this.alertMessage = "Tu usuario o contraseña son incorrectos."
                 }
             }
+        },
+        registerLink() {
+            this.$router.push('/register')
         }
     }
 }
