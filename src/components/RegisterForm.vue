@@ -12,6 +12,7 @@
                         :value="alertError"
                         outlined
                         color="white"
+                        class="text-caption"
                         text 
                         type="error" 
                         icon="mdi-alert-circle"
@@ -56,7 +57,9 @@
                     </v-col>
                     <v-col cols="12" class="d-flex justify-center">
                         <div class="text-caption white--text">¿Ya tienes una cuenta?</div>
-                        <div class="text-caption font-weight-bold white--text ml-2" @click="loginLink">Iniciar Sesión</div>
+                        <div 
+                        class="text-caption font-weight-bold white--text ml-2 sign-link"
+                        @click="loginLink">Iniciar Sesión</div>
                     </v-col>
                 </v-row>
             </v-container>

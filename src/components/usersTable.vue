@@ -14,7 +14,7 @@
             :items-per-page="5"
             :disable-sort="true" 
             class="elevation-1" 
-            :loading="loader" 
+            :loading="loader"
             loading-text="Cargando usuarios... Por favor espere">
             <template v-slot:top>
                 <v-toolbar flat>
@@ -22,13 +22,18 @@
                     <v-divider class="mx-4" inset vertical></v-divider>
                     <v-spacer></v-spacer>
                     <v-dialog v-model="dialog" max-width="500px">
-    
+
                         <template v-slot:activator="{ on, attrs }">
-                            <v-btn color="primary" dark class="mb-2" v-bind="attrs" v-on="on">
+                            <v-btn 
+                            color="#170035" 
+                            class="mb-2" 
+                            dark 
+                            v-bind="attrs" 
+                            v-on="on">
                                 Agregar Usuario
                             </v-btn>
                         </template>
-                        <v-card>
+                        <v-card class="py-6">
                             <v-card-title>
                                 <span class="text-h5">{{formTitle}}</span>
                             </v-card-title>
@@ -89,24 +94,38 @@
     
                             <v-card-actions>
                                 <v-spacer></v-spacer>
-                                <v-btn color="blue darken-1" text @click="close">
+                                <v-btn 
+                                    color="#170035" 
+                                    outlined 
+                                    @click="close">
                                     Cancelar
                                 </v-btn>
-                                <v-btn color="blue darken-1" text @click="buttonAction">
+                                <v-btn 
+                                    color="#E11D90"
+                                    elevation="0"
+                                    dark
+                                    @click="buttonAction">
                                     {{buttonTitle}}
                                 </v-btn>
                             </v-card-actions>
                         </v-card>
                     </v-dialog>
-                    <v-dialog 
+                    <v-dialog
                         v-model="dialogDelete"
                         max-width="500px">
-                        <v-card>
-                            <v-card-title class="text-h5">¿Seguro que deseas eliminar este usuario?</v-card-title>
+                        <v-card class="py-6">
+                            <v-card-title class="text-h6 justify-center">¿Seguro que deseas eliminar este usuario?</v-card-title>
                             <v-card-actions>
                                 <v-spacer></v-spacer>
-                                <v-btn color="blue darken-1" text @click="closeDelete">Cancel</v-btn>
-                                <v-btn color="blue darken-1" text @click="deleteUserConfirm">OK</v-btn>
+                                <v-btn 
+                                    color="#170035" 
+                                    outlined
+                                    @click="closeDelete">Cancel</v-btn>
+                                <v-btn 
+                                    color="#E11D90"
+                                    elevation="0"
+                                    dark
+                                    @click="deleteUserConfirm">OK</v-btn>
                                 <v-spacer></v-spacer>
                             </v-card-actions>
                         </v-card>
@@ -123,7 +142,7 @@
                     mdi-pencil
                 </v-icon>
                 <v-icon
-                    color="red" 
+                    color="#E11D90" 
                     small 
                     @click="deleteUser(item)">
                     mdi-delete

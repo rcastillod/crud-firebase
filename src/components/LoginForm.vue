@@ -12,6 +12,7 @@
                         :value="alertError"
                         outlined
                         color="white"
+                        class="text-caption"
                         text 
                         type="error" 
                         icon="mdi-alert-circle"
@@ -20,7 +21,7 @@
                     </v-alert>
                 </v-col>
                 <v-row>
-                    <v-col cols="12">
+                    <v-col cols="12" class="d-flex justify-center">
                         <h2 class="text-h4 font-weight-bold white--text">Login</h2>
                     </v-col>
                 </v-row>
@@ -43,7 +44,7 @@
                             dark
                             required></v-text-field>
                     </v-col>
-                    <v-col cols="12">
+                    <v-col cols="12" class="d-flex justify-center">
                         <v-btn
                             depressed
                             color="#E11D90"
@@ -56,7 +57,9 @@
                     </v-col>
                     <v-col cols="12" class="d-flex justify-center">
                         <div class="text-caption white--text">¿Aun no tiene una cuenta?</div>
-                        <div class="text-caption font-weight-bold white--text ml-2" @click="registerLink">Regístrate</div>
+                        <div 
+                        class="text-caption font-weight-bold white--text ml-2 sign-link" 
+                        @click="registerLink">Regístrate</div>
                     </v-col>
                 </v-row>
             </v-container>
@@ -91,7 +94,7 @@ export default {
             this.$refs.form.validate()
             if ( this.valid == false ) {
                 this.alertError = true
-                this.alertMessage = "Debes ingresar todo los campos requeridos!"
+                this.alertMessage = "Debes ingresar todo los campos obligatorios!"
             } else {
                 this.alertError = false
                 const auth = getAuth()
@@ -117,5 +120,5 @@ export default {
 </script>
 
 <style scoped lang="scss">
-    
+
 </style>

@@ -1,9 +1,9 @@
 <template>
-  <section>
+  <section class="pt-9">
     <v-container>
-      <v-row>
+      <v-row justify="center">
         <v-col
-        cols="12">
+        cols="8">
           <users-table></users-table>
         </v-col>
       </v-row>

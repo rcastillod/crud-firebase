@@ -27,6 +27,13 @@ export default {
 </script>
 
 <style lang="scss">
+
+/** Global */
+body {
+  color: #170035;
+}
+
+/** Login & Register Form */
 .login,
 .register {
   background-image: url('./assets/login-bg.jpg');
@@ -36,5 +43,12 @@ export default {
 }
 .form-card {
   backdrop-filter: blur(15px);
+}
+.sign-link {
+  cursor: pointer;
+  transition: color 300ms ease-in-out;
+  &:hover {
+    color: #170035 !important;
+  }
 }
 </style>
